@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CreditWorks.Tests/CreditWorks.Tests.csproj" />
+  <Project Path="CreditWorks.Web/CreditWorks.Web.csproj" />
+</Solution>

@@ -1,0 +1,16 @@
+@model CreditWorks.Web.ViewModels.VehicleCreateViewModel
+@{ ViewData["Title"] = "Add vehicle"; }
+<div class="form-shell">
+    <a class="back-link" asp-action="Index">← Back to vehicles</a><p class="eyebrow">FLEET RECORD</p><h1>Add a vehicle</h1>
+    <p class="muted">All fields are required. Weight determines the vehicle's current category.</p>
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+        <div class="form-field"><label asp-for="OwnerName">Owner name</label><input asp-for="OwnerName" autocomplete="name" placeholder="e.g. Jane Turei" /><span asp-validation-for="OwnerName"></span></div>
+        <div class="form-field"><label asp-for="ManufacturerId">Manufacturer</label><select asp-for="ManufacturerId" asp-items="Model.Manufacturers"><option value="">Choose a manufacturer</option></select><span asp-validation-for="ManufacturerId"></span></div>
+        <div class="form-grid">
+            <div class="form-field"><label asp-for="YearOfManufacture">Year of manufacture</label><input asp-for="YearOfManufacture" type="number" min="1886" max="@DateTime.UtcNow.Year" placeholder="2019" /><span asp-validation-for="YearOfManufacture"></span></div>
+            <div class="form-field"><label asp-for="WeightKg">Weight (kg)</label><input asp-for="WeightKg" type="number" min="0.01" max="99999999.99" step="0.01" placeholder="1850.75" /><span asp-validation-for="WeightKg"></span></div>
+        </div>
+        <div class="form-actions"><button class="button button-primary" type="submit">Save vehicle</button><a class="button button-quiet" asp-action="Index">Cancel</a></div>
+    </form>
+</div>

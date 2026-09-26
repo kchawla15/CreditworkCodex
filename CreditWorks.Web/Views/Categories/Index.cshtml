@@ -1,0 +1,16 @@
+@model IReadOnlyList<CreditWorks.Web.Models.VehicleCategory>
+@{ ViewData["Title"] = "Categories"; }
+<div class="page-heading">
+    <div><p class="eyebrow">CONFIGURATION</p><h1>Weight categories</h1><p class="muted">Ranges use an inclusive lower bound and an exclusive upper bound.</p></div>
+    <a class="button button-primary" asp-action="Create">＋ Add category</a>
+</div>
+<div class="info-panel">Categories must cover every non-negative weight without gaps or overlaps. Adding a category splits an existing range. Editing a boundary moves the adjoining range with it, so saved ranges stay continuous.</div>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>Minimum (inclusive)</th><th>Maximum (exclusive)</th><th>Icon</th><th></th></tr></thead><tbody>
+@foreach (var category in Model)
+{
+    <tr><td class="owner">@category.Name</td><td>@category.MinimumWeight.ToString("N2") kg</td><td>@(category.MaximumWeight is null ? "No limit" : $"{category.MaximumWeight.Value:N2} kg")</td>
+        <td><span class="vehicle-icon" aria-hidden="true">@CreditWorks.Web.Models.VehicleIcons.Symbol(category.Icon)</span><span class="muted"> @category.Icon</span></td>
+        <td class="row-actions"><a class="button button-small" asp-action="Edit" asp-route-id="@category.Id">Edit</a>
+            <form asp-action="Delete" asp-route-id="@category.Id" method="post" onsubmit="return confirm('Delete this category? Its adjacent category will inherit this weight range.');"><button class="button button-small button-danger" type="submit">Delete</button></form></td></tr>
+}
+</tbody></table></div>

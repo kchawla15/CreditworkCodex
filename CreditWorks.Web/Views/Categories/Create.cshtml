@@ -1,0 +1,12 @@
+@model CreditWorks.Web.ViewModels.CategoryCreateViewModel
+@{ ViewData["Title"] = "Add category"; }
+<div class="form-shell">
+    <a class="back-link" asp-action="Index">← Back to categories</a><p class="eyebrow">CONFIGURATION</p><h1>Add a category</h1>
+    <p class="muted">Choose a split point inside an existing range. The new category starts there and inherits the remainder of that range.</p>
+    <form asp-action="Create" method="post"><div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+        <div class="form-field"><label asp-for="Name">Category name</label><input asp-for="Name" placeholder="e.g. Compact" /><span asp-validation-for="Name"></span></div>
+        <div class="form-field"><label asp-for="Icon">Icon</label><select asp-for="Icon" asp-items="Model.Icons"></select><span asp-validation-for="Icon"></span></div>
+        <div class="form-field"><label asp-for="SplitAtKg">Split at (kg)</label><input asp-for="SplitAtKg" type="number" min="0.01" step="0.01" placeholder="1000" /><span asp-validation-for="SplitAtKg"></span></div>
+        <div class="form-actions"><button class="button button-primary" type="submit">Create category</button><a class="button button-quiet" asp-action="Index">Cancel</a></div>
+    </form>
+</div>

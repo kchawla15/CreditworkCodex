@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+.tools/
+.vs/
+.idea/
+*.user
+*.csproj.user
+*.suo
+*.db
+*.bak
+appsettings.Local.json
