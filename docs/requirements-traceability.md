@@ -15,4 +15,4 @@ This checklist maps the assignment requirements to implementation and verificati
 | SQL Server relational persistence, migrations, decimal precision | `Data/CreditWorksDbContext.cs`, `Data/Migrations/`, `appsettings.json` | Migration applied to LocalDB; app startup and seed path completed | Verified |
 | MVC Razor UI, validation, anti-forgery, safe error handling | `Controllers/`, `Views/`, `Program.cs` | Build/test and source inspection | Verified by inspection |
 | xUnit tests and run documentation | `CreditWorks.Tests/`, root `README.md` | Full test suite | Verified: 32 passing |
-| Git repository and clean generated files | Root `.gitignore`; generated output ignored | `git init` was rejected at the permission prompt; no `.git` metadata was created | Not complete: repository initialization denied |
+| Git repository and clean generated files | Root `.gitignore`; generated output ignored | Local commit `0b5dc71` pushed to `origin/main` | Verified |
