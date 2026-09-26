@@ -4,9 +4,9 @@ A small ASP.NET Core MVC application for managing vehicles and their weight cate
 
 ## Requirements
 
-- .NET 10 SDK
+- .NET 9 SDK (supported by Visual Studio 2022 17.12 and later)
 - Microsoft SQL Server 2019 or later, SQL Server Express, or LocalDB
-- EF Core CLI (`dotnet tool install --global dotnet-ef --version 10.0.0`) for migration commands
+- EF Core CLI (`dotnet tool install --global dotnet-ef --version 9.0.20`) for migration commands
 
 ## Configure and run
 
@@ -19,7 +19,7 @@ $env:ConnectionStrings__CreditWorks = "Server=localhost\SQLEXPRESS;Database=Cred
 For a SQL login, keep credentials out of source control and provide the connection string through a secret store or an environment variable. Then, from the repository root:
 
 ```powershell
-dotnet tool install --global dotnet-ef --version 10.0.0
+dotnet tool install --global dotnet-ef --version 9.0.20
 dotnet restore CreditWorks.slnx
 dotnet ef database update --project CreditWorks.Web --startup-project CreditWorks.Web
 dotnet build CreditWorks.slnx
